@@ -236,15 +236,15 @@
   "additional_passengers": "Additional Passengers",
   "attachments": "Attachments",
 
-    "search_name": "Search by name",
-    "edit_entity": "Edit Entity",
+  "search_name": "Search by name",
+  "edit_entity": "Edit Entity",
   "entity_name": "Entity Name",
-   "cancel": "Cancel",
+  "cancel": "Cancel",
 
- "entity_form_title": "Entity creation form",
+  "entity_form_title": "Entity creation form",
 
-"enter_entity_name": "Enter the entity name", 
-"edit_country": "Edit Country",
+  "enter_entity_name": "Enter the entity name",
+  "edit_country": "Edit Country",
 
   "country_form_title": "Country creation form",
   "country_iso": "Country ISO Code",
@@ -294,9 +294,9 @@
   "enter_country_name": "Enter the country name",
 
   "search_locality": "Search for a locality",
-   "search_country": "Search for a country",
+  "search_country": "Search for a country",
   "lacality_name": "Name of locality",
-   "enter_locality_name": "Enter the locality name",
+  "enter_locality_name": "Enter the locality name",
   "select_country": "select country",
 
   "currency_list": "Currency List",
@@ -540,5 +540,32 @@
   "excel_compatible": "Excel Compatible",
   "sample_fields": "Sample fields included",
   "field_examples": "Collection ID, Year/Month, Product, HS Code, Collection Type, Transport ID, Origin Country, Quantity, Unit Price, FOB/CAF Values, Initial Volume, Initial Value, Volume in kg, CPC Regime, Loading/Unloading Points, Collection Point, Currency",
-  "view_all": "View All"
+  "view_all": "View All",
+
+  "auth": {
+    "welcome": "Welcome",
+    "connect_to_account": "Connect to your OFR account",
+    "connect_to_ecowas": "Connect to ECO ICBT",
+    "email_placeholder": "your.email@example.com",
+    "password_placeholder": "Your password",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot password?",
+    "sign_in": "Sign In",
+    "no_account": "Don't have an account yet?",
+    "create_account": "Create account",
+    "back_to_home": "Back to home",
+    "ecowas_title": "ECO ICBT",
+    "platform_subtitle": "Intelligent Platform",
+    "platform_description": "Platform for managing informal cross-border trade in the ECOWAS space to facilitate commercial exchanges",
+    "create_account_description": "Create your ECO ICBT account",
+    "first_name_placeholder": "First Name",
+    "last_name_placeholder": "Last Name",
+    "terms_acceptance": "By continuing you accept",
+    "terms_of_use": "our terms of use",
+    "and": "and",
+    "privacy_policy": "our privacy policy",
+    "create_my_account": "Create my account",
+    "already_have_account": "Already have an account?",
+    "sign_in_link": "Sign In"
+  }
 }
