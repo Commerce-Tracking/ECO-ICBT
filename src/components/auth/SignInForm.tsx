@@ -82,7 +82,10 @@ export default function SignInForm() {
         <div className="space-y-5">
           {/* Champ Email avec icône */}
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <Label className="text-white/90 text-sm font-medium mb-2 block">
+              {t("auth.email_label")} <span className="text-orange-400">*</span>
+            </Label>
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none top-6">
               <svg
                 className="w-5 h-5 text-white/60"
                 fill="none"
@@ -108,7 +111,11 @@ export default function SignInForm() {
 
           {/* Champ Mot de passe avec icône */}
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <Label className="text-white/90 text-sm font-medium mb-2 block">
+              {t("auth.password_label")}{" "}
+              <span className="text-orange-400">*</span>
+            </Label>
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none top-6">
               <svg
                 className="w-5 h-5 text-white/60"
                 fill="none"
@@ -133,12 +140,12 @@ export default function SignInForm() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute inset-y-0 right-0 pr-4 flex items-center text-white/60 hover:text-white transition-colors"
+              className="absolute right-0 pr-4 flex items-center text-white hover:text-orange-200 transition-colors top-8 h-10"
             >
               {showPassword ? (
-                <EyeIcon className="size-5" />
+                <EyeIcon className="size-5 fill-black " />
               ) : (
-                <EyeCloseIcon className="size-5" />
+                <EyeCloseIcon className="size-5 fill-black" />
               )}
             </button>
           </div>

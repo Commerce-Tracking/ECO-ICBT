@@ -566,6 +566,8 @@
     "privacy_policy": "our privacy policy",
     "create_my_account": "Create my account",
     "already_have_account": "Already have an account?",
-    "sign_in_link": "Sign In"
+    "sign_in_link": "Sign In",
+    "email_label": "User Email",
+    "password_label": "Password"
   }
 }

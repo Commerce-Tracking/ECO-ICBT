@@ -568,6 +568,8 @@
     "privacy_policy": "notre politique de confidentialité",
     "create_my_account": "Créer mon compte",
     "already_have_account": "Vous avez déjà un compte ?",
-    "sign_in_link": "Se connecter"
+    "sign_in_link": "Se connecter",
+    "email_label": "Email de l'utilisateur",
+    "password_label": "Mot de passe"
   }
 }
