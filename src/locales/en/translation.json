@@ -385,6 +385,8 @@
   "no_product_natures_available": "No product natures available",
   "associated_product_codes": "Associated Product Codes",
   "no_product_codes_associated": "No product codes associated",
+  "select_product_nature": "Select a product nature",
+  "product_nature_informational": "This selection is for informational purposes only and will not be sent to the server",
   "name_french": "French Name",
   "name_english": "English Name",
   "abbreviation": "Abbreviation",

@@ -26,11 +26,30 @@ interface ProductType {
   products?: any[];
 }
 
+interface ProductNature {
+  id: number;
+  name_fr: string;
+  name_en: string;
+  created_at: string;
+  updated_at: string;
+  productCodes: Array<{
+    id: number;
+    product_id: number;
+    product_nature_id: number;
+    hs_code: string;
+    abbreviation: string;
+    created_at: string;
+    updated_at: string;
+  }>;
+}
+
 const AddProduct = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
   const [productTypes, setProductTypes] = useState<ProductType[]>([]);
+  const [productNatures, setProductNatures] = useState<ProductNature[]>([]);
+  const [selectedNature, setSelectedNature] = useState<string>("");
   const [formData, setFormData] = useState<ProductFormData>({
     name: "",
     name_eng: "",
@@ -61,8 +80,32 @@ const AddProduct = () => {
     }
   };
 
+  // Récupérer la liste des natures de produits
+  const fetchProductNatures = async () => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      if (!token) return;
+
+      const response = await axiosInstance.get(
+        "/admin/reference-data/product-natures?page=1&limit=100",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.data.success) {
+        setProductNatures(response.data.result.data || []);
+      }
+    } catch (err: any) {
+      console.error("Erreur lors du chargement des natures de produits:", err);
+    }
+  };
+
   useEffect(() => {
     fetchProductTypes();
+    fetchProductNatures();
   }, []);
 
   const handleInputChange = (
@@ -75,6 +118,10 @@ const AddProduct = () => {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleNatureChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedNature(e.target.value);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -168,6 +215,7 @@ const AddProduct = () => {
       product_type_id: "",
       description: "",
     });
+    setSelectedNature("");
   };
 
   return (
@@ -194,7 +242,6 @@ const AddProduct = () => {
                     placeholder={t("enter_product_name")}
                     className="w-full"
                     disabled={loading}
-                    required
                   />
                 </div>
 
@@ -214,6 +261,26 @@ const AddProduct = () => {
                     {productTypes.map((type) => (
                       <option key={type.id} value={type.id}>
                         {type.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t("product_natures")}{" "}
+                    <span className="text-blue-500">*</span>
+                  </label>
+                  <select
+                    value={selectedNature}
+                    onChange={handleNatureChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    disabled={loading}
+                  >
+                    <option value="">{t("select_product_nature")}</option>
+                    {productNatures.map((nature) => (
+                      <option key={nature.id} value={nature.id}>
+                        {nature.name_fr} ({nature.name_en})
                       </option>
                     ))}
                   </select>
@@ -252,7 +319,6 @@ const AddProduct = () => {
 
               <div className="flex justify-end gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
                 <Button
-                  type="button"
                   variant="outline"
                   onClick={handleReset}
                   disabled={loading}
@@ -261,7 +327,6 @@ const AddProduct = () => {
                   {t("reset")}
                 </Button>
                 <Button
-                  type="button"
                   variant="outline"
                   onClick={() => navigate("/products/list")}
                   disabled={loading}
@@ -269,7 +334,7 @@ const AddProduct = () => {
                 >
                   {t("cancel")}
                 </Button>
-                <Button type="submit" disabled={loading} className="px-6 py-2">
+                <Button disabled={loading} className="px-6 py-2">
                   {loading ? t("creating") : t("create")}
                 </Button>
               </div>

@@ -390,6 +390,8 @@
   "no_product_natures_available": "Aucune nature de produit disponible",
   "associated_product_codes": "Codes produits associés",
   "no_product_codes_associated": "Aucun code produit associé",
+  "select_product_nature": "Sélectionner une nature de produit",
+  "product_nature_informational": "Cette sélection est à titre informatif uniquement et ne sera pas envoyée au serveur",
   "name_french": "Nom français",
   "name_english": "Nom anglais",
   "abbreviation": "Abréviation",
